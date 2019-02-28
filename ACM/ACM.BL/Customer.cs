@@ -65,35 +65,7 @@ namespace ACM.BL
                 return fullName;
             }
         }
-        /// <summary>
-        /// Retrieve one customer
-        /// </summary>
-        /// <param name="customerId"></param>
-        /// <returns></returns>
-        public Customer Retrieve(int customerId)
-        {
-            //Code that retrieves the defined customer
-
-            return new Customer();
-        }
-        /// <summary>
-        /// Retrieve the list of customer
-        /// </summary>
-        /// <returns></returns>
-        public List<Customer> Retrieve()
-        {
-            return new List<Customer>();
-
-        }
-        /// <summary>
-        /// Saves the current customer
-        /// </summary>
-        /// <returns></returns>
-        public bool Save()
-        {
-            // Code that saves the defined customer
-            return true;
-        }
+       
         public bool Validate()
         {
             // Assume LastName and EmailAddress are required.
@@ -103,6 +75,6 @@ namespace ACM.BL
 
             return isValid;
         }
-        public 
+        
     }
 }

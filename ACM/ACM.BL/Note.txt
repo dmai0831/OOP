@@ -11,10 +11,15 @@ output i = 35
 --------------------
 
 var cust1 = new Customer();
-cust1.FirstName = "Duc1";
+cust1.FirstName = "AA";
 
 var cust2 = cust1;
-cust2.FirstName = "Duc2";
+cust2.FirstName = "BB";
 
 what is cust1.FirstName?
-output Duc2 because both of them are pointing to the same Customer object
+output BB because both of them are pointing to the same Customer object
+--------------------
+
+When compare 2 objects, if they are referencing the same object, they would consider the same.
+If they are two separate objects but are matching the properties, they are not considering to be equal.
+-----------------
