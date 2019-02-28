@@ -8,6 +8,18 @@ namespace ACM.BL
 {
     public class Customer
     {
+        //use snippet ctor
+        //This is default constuctor
+        public Customer()
+        {
+
+        }
+        // Create overload constructor to take customerId
+        public Customer(int customerId)
+        {
+            // this keyword references the current instance of the class
+            this.CustomerId = customerId;
+        }
         //When we use static modifier to declare on member. That member is belongs to type itself i.e..Customer rather than any specific instance
         //Using static modifer allows you to declare member that actually belongs the class itself, not to instance of the class
         public static int InstanceCount { get; set; }
@@ -33,7 +45,8 @@ namespace ACM.BL
 
         public string EmailAddress { get; set; }
         
-        //Any class external to this class cannot set this property
+        //Any class external to this class cannot set this property.
+        // CustomerId cannot be set outside of the Customer class
         public int CustomerId { get; private set; }
 
         public string FullName
