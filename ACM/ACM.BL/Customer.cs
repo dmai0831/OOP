@@ -8,6 +8,10 @@ namespace ACM.BL
 {
     public class Customer
     {
+        //When we use static modifier to declare on member. That member is belongs to type itself i.e..Customer rather than any specific instance
+        //Using static modifer allows you to declare member that actually belongs the class itself, not to instance of the class
+        public static int InstanceCount { get; set; }
+
         //Use private access modifier to ensure no code outside of this class can access it. This field is stored actual data.
         private string _lastName;
         //Use publish access modifier meaning any code can use it to get or set the data
@@ -48,7 +52,44 @@ namespace ACM.BL
                 return fullName;
             }
         }
+        /// <summary>
+        /// Retrieve one customer
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
+        public Customer Retrieve(int customerId)
+        {
+            //Code that retrieves the defined customer
 
+            return new Customer();
+        }
+        /// <summary>
+        /// Retrieve the list of customer
+        /// </summary>
+        /// <returns></returns>
+        public List<Customer> Retrieve()
+        {
+            return new List<Customer>();
 
+        }
+        /// <summary>
+        /// Saves the current customer
+        /// </summary>
+        /// <returns></returns>
+        public bool Save()
+        {
+            // Code that saves the defined customer
+            return true;
+        }
+        public bool Validate()
+        {
+            // Assume LastName and EmailAddress are required.
+            bool isValid = true;
+            if (string.IsNullOrWhiteSpace(LastName))  return false;
+            if (string.IsNullOrWhiteSpace(EmailAddress)) return false;
+
+            return isValid;
+        }
+        public 
     }
 }

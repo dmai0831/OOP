@@ -1,0 +1,20 @@
+﻿Objects are Reference Types
+
+int i;
+i = 35;
+
+int j = i;
+j = 3;
+
+what is the value of i?
+output i = 35
+--------------------
+
+var cust1 = new Customer();
+cust1.FirstName = "Duc1";
+
+var cust2 = cust1;
+cust2.FirstName = "Duc2";
+
+what is cust1.FirstName?
+output Duc2 because both of them are pointing to the same Customer object

@@ -7,6 +7,7 @@ namespace ACM.BLTest
     [TestClass]
     public class CustomerTest
     {
+        #region Test FullName property
         /// <summary>
         /// Create FullName valid test
         /// </summary>
@@ -65,5 +66,89 @@ namespace ACM.BLTest
             // Assert
             Assert.AreEqual(expected, actual);
         }
+        #endregion
+        [TestMethod]
+        public void StaticTest()
+        {
+            // Arrange
+            var c1 = new Customer();
+            c1.FirstName = "Duc";
+            Customer.InstanceCount += 1;
+
+            var c2 = new Customer();
+            c2.FirstName = "Emma";
+            Customer.InstanceCount += 1;
+
+            var c3 = new Customer();
+            c3.FirstName = "Bella";
+            Customer.InstanceCount += 1;
+
+            // Act
+
+            // Assert
+            Assert.AreEqual(3, Customer.InstanceCount);
+        }
+        #region Test Validate function
+        [TestMethod]
+        public void ValidateTestValid()
+        {
+            //Arrange
+            var customer = new Customer();
+            customer.LastName = "Mai";
+            customer.EmailAddress = "dmai0831@gmail.com";
+
+            var expected = true;
+            //Act
+            var actual = customer.Validate();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ValidateMissingLastName()
+        {
+            //Arrange
+            var customer = new Customer();
+            //customer.FirstName = "Duc";
+            customer.EmailAddress = "dmai0831@gmail.com";
+
+            var expected = false;
+            //Act
+            var actual = customer.Validate();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ValidateMissingEmailAddress()
+        {
+            //Arrange
+            var customer = new Customer();
+            customer.FirstName = "Duc";
+            //customer.EmailAddress = "dmai0831@gmail.com";
+
+            var expected = false;
+            //Act
+            var actual = customer.Validate();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ValidateMissingBothLastNameEmailAddress()
+        {
+            //Arrange
+            var customer = new Customer();
+            //customer.FirstName = "Duc";
+            //customer.EmailAddress = "dmai0831@gmail.com";
+
+            var expected = false;
+            //Act
+            var actual = customer.Validate();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        #endregion
     }
 }
