@@ -11,15 +11,28 @@ namespace ACM.BL
         //use snippet ctor
         //This is default constuctor
         public Customer()
+            //this is called constructor chaining. One constructor calling another constructor
+            :this(0)
         {
-
+            //Using this(0) to avoid repeating initialize Address
+            //AddressList = new List<Address>();
         }
         // Create overload constructor to take customerId
         public Customer(int customerId)
         {
             // this keyword references the current instance of the class
             this.CustomerId = customerId;
+            //initialize it to avoid having null 
+            AddressList = new List<Address>();
         }
+
+        //public Address Homeaddress { get; set; }
+        //public Address WorkAddress { get; set; }
+
+        //replaced by a list. A list is a strong type of addresses
+        //a list in the property doesn't have default value.
+        public List<Address> AddressList { get; set; }
+
         //When we use static modifier to declare on member. That member is belongs to type itself i.e..Customer rather than any specific instance
         //Using static modifer allows you to declare member that actually belongs the class itself, not to instance of the class
         public static int InstanceCount { get; set; }
