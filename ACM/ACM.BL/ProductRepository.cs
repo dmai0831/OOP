@@ -42,9 +42,21 @@ namespace ACM.BL
         /// Saves the current product
         /// </summary>
         /// <returns></returns>
-        public bool Save()
+        public bool Save(Product product)
         {
-            return true;
+            bool success = true;
+            if (product.HasChanges && product.IsValid)
+            {
+                if (product.IsNew)
+                {
+                    //Call an insert stored procedure
+                }
+                else
+                {
+                    // call an update stored procedure
+                }
+            }
+            return success;
         }
     }
 }

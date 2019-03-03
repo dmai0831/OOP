@@ -8,6 +8,50 @@ namespace ACM.BL
 {
     public class OrderRepository
     {
+        public OrderDisplay RetrieveOrderDisplay(int orderId)
+        {
+            OrderDisplay orderDisplay = new OrderDisplay();
+
+            //Temporary hard coded
+            if(orderId ==10)
+            {
+                orderDisplay.FirstName = "Duc";
+                orderDisplay.LastName = "Mai";
+                orderDisplay.OrderDate = new DateTimeOffset(2019, 2, 28, 23, 0, 0, TimeSpan.FromHours(+3));
+                orderDisplay.ShippingAddress = new Address()
+                {
+                    AddressType=1,
+                    StreetLine1="Bag End",
+                    StreetLine2="Bagshot row",
+                    City="Quincy",
+                    State="MA",
+                    Country="United States",
+                    PostalCode="02169"
+                };
+            }
+            orderDisplay.orderDisplayItemList = new List<OrderDisplayItem>();
+            //Temporary hard coded
+            if (orderId == 10)
+            {
+                var orderDisplayItem = new OrderDisplayItem()
+                {
+                    ProductName="Sunflowers",
+                    PurchasePrice=15.9M,
+                    OrderQuantity=2
+                };
+                orderDisplay.orderDisplayItemList.Add(orderDisplayItem);
+
+                orderDisplayItem = new OrderDisplayItem()
+                {
+                    ProductName = "Rake",
+                    PurchasePrice = 6M,
+                    OrderQuantity = 1
+                };
+                orderDisplay.orderDisplayItemList.Add(orderDisplayItem);
+            }
+
+            return orderDisplay;
+        }
         /// <summary>
         /// Retrieve one order
         /// </summary>

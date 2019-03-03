@@ -33,6 +33,8 @@ namespace ACM.BL
         //a list in the property doesn't have default value.
         public List<Address> AddressList { get; set; }
 
+        public int CustomerType { get; set; }
+
         //When we use static modifier to declare on member. That member is belongs to type itself i.e..Customer rather than any specific instance
         //Using static modifer allows you to declare member that actually belongs the class itself, not to instance of the class
         public static int InstanceCount { get; set; }
