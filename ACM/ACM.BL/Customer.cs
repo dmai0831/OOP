@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Acme.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    public class Customer
+    public class Customer:EntityBase, ILoggable
     {
         //use snippet ctor
         //This is default constuctor
@@ -81,7 +82,7 @@ namespace ACM.BL
             }
         }
        
-        public bool Validate()
+        public override bool Validate()
         {
             // Assume LastName and EmailAddress are required.
             bool isValid = true;
@@ -90,6 +91,19 @@ namespace ACM.BL
 
             return isValid;
         }
-        
+        public override string ToString()
+        {
+            //return base.ToString();
+            return FullName;
+        }
+        public string Log()
+        {
+            var logString = this.CustomerId + ": " +
+                            this.FullName + " " +
+                            "Email: " + this.EmailAddress +
+                            "Status: " + this.EntityState.ToString();
+
+            return logString;
+        }
     }
 }
