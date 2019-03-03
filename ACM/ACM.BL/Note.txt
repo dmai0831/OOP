@@ -23,3 +23,8 @@ output BB because both of them are pointing to the same Customer object
 When compare 2 objects, if they are referencing the same object, they would consider the same.
 If they are two separate objects but are matching the properties, they are not considering to be equal.
 -----------------
+Abstract class cannot be instantiated
+
+
+--------
+Static class cannot be instantiated. Meaning you cannot use the "new" keyword to create the object.
